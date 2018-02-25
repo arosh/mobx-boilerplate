@@ -6,4 +6,4 @@ type Props = {
   now: number,
 };
 
-export default (props: Props) => <ProgressBar now={props.now} />;
+export default (props: Props) => <ProgressBar {...props} />;
