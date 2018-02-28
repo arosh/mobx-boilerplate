@@ -4,5 +4,5 @@ import Progress from '../components/Progress';
 import type { Stores } from '../stores';
 
 export default inject(({ counterStore }: Stores) => ({
-  now: counterStore.count,
+  now: counterStore.doubleCount,
 }))(Progress);

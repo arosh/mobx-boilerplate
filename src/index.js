@@ -2,22 +2,21 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'mobx-react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import rootStore from './stores';
-import { IncrementButton, DecrementButton } from './containers/Button';
-import Progress from './containers/Progress';
+
+import createStores from './stores';
+import App from './containers/App';
+
+const stores = createStores();
 
 const element = document.querySelector('#react-root');
 
 if (element) {
   ReactDOM.render(
-    <Provider rootStore={new rootStore()}>
-      <React.Fragment>
-        <IncrementButton />
-        <DecrementButton />
-        <Progress />
-      </React.Fragment>
-    </Provider>,
+    <React.Fragment>
+      <Provider {...stores}>
+        <App />
+      </Provider>
+    </React.Fragment>,
     element
   );
 }
